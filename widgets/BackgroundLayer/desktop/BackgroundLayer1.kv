@@ -1,0 +1,26 @@
+#:kivy 1.11.1
+
+<BackgroundLayer1>:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                pos: self.pos
+                size:self.size
+        BoxLayout:
+            orientation: 'vertical'
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,0.5
+                RoundedRectangle:
+                    pos: self.pos
+                    size:self.size
+                    radius: [0,0, 10, 10]
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding:[0,0,0,30]
