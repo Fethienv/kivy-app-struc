@@ -21,10 +21,19 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.utils import platform
 
+
+from modules.loader import Loader
+
 # Main application
 class MainApp(App):
 
     device_type = "mobile"
+
+    # loader progress
+    progress_current = 0
+    progress_percent = 0
+    progress_total   = 1
+
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -55,7 +64,6 @@ class MainApp(App):
     def on_start(self):
         """Creates a list of items with examples on start screen."""
 
-
         # load drawables data
         print("[INFO   ] [MainApp     ] Load global widgets list ...")
         with open("widgets/widgets_data.json") as widgets_data_json:
@@ -84,6 +92,8 @@ class MainApp(App):
             self.screens_data = ast.literal_eval(screens_data_json.read())
             screens_data = list(self.screens_data.keys())
             screens_data.sort()
+
+        Loader().load_widgets()
 
 
 # reset Cache
