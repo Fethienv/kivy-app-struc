@@ -54,7 +54,7 @@ class MainApp(App):
 
     def build(self):
         # Only first screen
-        from screens.main.py import MainScreen
+        from screens.main.py.main import MainScreen
 
         self.sm = Builder.load_file('screens/ScreenManager.kv')        
         self.sm.current = "Main"

@@ -4,6 +4,12 @@
         "file_name"   : "main",
         "screen_name" : "Main",
         "object": 0
+    },
+    "DashboardScreen": {
+        "subdir"      : "dashboard",
+        "file_name"   : "dashboard",
+        "screen_name" : "Dashboard",
+        "object": 0
     }
 
 }

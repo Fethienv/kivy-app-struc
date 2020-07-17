@@ -1,0 +1,11 @@
+#:kivy 1.11.1
+
+<DashboardScreen>:
+    name: "Dashboard"
+
+    Label:
+        text: "Dashboard"
+    
+    Button:
+        text: "Back screen"
+        on_release: screensloader().ChangeToScreen("Main")

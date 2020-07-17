@@ -29,9 +29,9 @@ class ScreensLoader():
         for ItemName in widgets_data:
             # Print status
             if device_type:
-                print(f"[INFO   ] [MainApp     ] load {device_type} widgets: ", ItemName)
+                print(f"[INFO   ] [SCSLoader   ] load {device_type} widgets: ", ItemName)
             else:
-                print(f"[INFO   ] [MainApp     ] load widgets: ", ItemName)
+                print(f"[INFO   ] [SCSLoader   ] load widgets: ", ItemName)
 
             # get file name
             widgets_file_name = widgets_data[ItemName]["file"]
@@ -87,8 +87,8 @@ class ScreensLoader():
                         f"screens/{subdir}/kv/{file_name}.kv"
             )
 
-            Controller = "from screens." + str(app.screens_data[class_name]["file_name"]) +" import " + str(class_name)
-            exec(Controller)
+            py_class = "from screens." + str(app.screens_data[class_name]["subdir"]) + '.py.' + str(app.screens_data[class_name]["file_name"]) +" import " + str(class_name)
+            exec(py_class)
 
             Factory = str(class_name) + "(name='"+str(app.screens_data[class_name]["screen_name"])+"')"
 
@@ -99,13 +99,13 @@ class ScreensLoader():
             Screen_Manger.add_widget(app.screens_data[class_name]["object"])
 
         manager_name = "in Main Manger" if not screen_manager else "in Dashboard Manger"
-
-        print("[INFO   ] [MainAPP     ] load screen " + manager_name + ": ", app.screens_data[class_name]["screen_name"])
+                          
+        print("[INFO   ] [SCSLoader   ] load screen " + manager_name + ": ", app.screens_data[class_name]["screen_name"])
         Screen_Manger.current = str(app.screens_data[class_name]["screen_name"])
 
-    def ChangeToScreen(screen_name, Child = False):
+    def ChangeToScreen(self, screen_name, Child = False):
 
-        if Child:
+        if Child == True:
             # get running App
             app = App.get_running_app()
 
