@@ -21,8 +21,8 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.utils import platform
 
-
-from modules.loader import Loader
+# Screens Loader modules
+from modules.screensloader import ScreensLoader
 
 # Main application
 class MainApp(App):
@@ -93,7 +93,7 @@ class MainApp(App):
             screens_data = list(self.screens_data.keys())
             screens_data.sort()
 
-        Loader().load_widgets()
+        ScreensLoader().load_widgets()
 
 
 # reset Cache

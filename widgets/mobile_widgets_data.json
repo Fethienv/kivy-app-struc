@@ -1,6 +1,7 @@
 {
     "BackgroundLayer": {
-        "name": "BackgroundLayer",
+        "file"  : "backgroundlayer2",
+        "class" : "BackgroundLayer2",
         "object": 0
     }
 
