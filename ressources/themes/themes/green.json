@@ -1,0 +1,48 @@
+{
+    "Light":
+        {
+            "theme_style"               : "Light",
+            "primary_palette"           : "Green",
+            "accent_palette"            : "Yellow",
+            "primary_color"             : "6610f2",
+            "secondary_color"           : "dcd5de",
+            "error_text_color"          : "941212",
+            "error_dialog_header_color" : "941212",
+            "error_input_border_color"  : "941212",
+            "progress_bar_color"        : "6610f2",
+            "background_color"          : "ffffff",
+            "input_border_color"        : "ffffff",
+            "readbox_border_color"      : "a8a3a8",
+            "Label_text_color"          : "000000",
+            "dashbord_primary_color"    : "e0d5f2",
+            "dashbord_secondary_color"  : "d5d2d6",
+            "dashbord_icons_normal_color" : "aaa2b8",
+            "dashbord_icons_normal_bkg"   : "e0d5f2",
+            "dashbord_icons_active_color" : "ffffff",
+            "dashbord_icons_active_bkg"   : "6610f2",            
+            "font_name"                 : "ressources/fonts/KacstOne.ttf"
+        },
+    "Dark":
+        {
+            "theme_style"               : "Dark",
+            "primary_palette"           : "LightGreen",
+            "accent_palette"            : "Yellow",
+            "primary_color"             : "6610f2",
+            "secondary_color"           : "dcd5de",
+            "error_text_color"          : "941212",
+            "error_dialog_header_color" : "941212",
+            "error_input_border_color"  : "941212",
+            "progress_bar_color"        : "6610f2",
+            "background_color"          : "000000",
+            "input_border_color"        : "ffffff",
+            "readbox_border_color"      : "a8a3a8",
+            "Label_text_color"          : "ffffff",
+            "dashbord_primary_color"    : "000000",
+            "dashbord_secondary_color"  : "000000",
+            "dashbord_icons_normal_color" : "aaa2b8",
+            "dashbord_icons_normal_bkg"   : "e0d5f2",
+            "dashbord_icons_active_color" : "ffffff",
+            "dashbord_icons_active_bkg"   : "6610f2",            
+            "font_name"                 : "ressources/fonts/KacstOne.ttf"
+        }
+}
