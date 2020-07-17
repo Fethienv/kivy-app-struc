@@ -23,6 +23,7 @@ from kivy.utils import platform
 
 # Screens Loader modules
 from modules.screensloader import ScreensLoader
+from modules.themesmanager import ThemesManager
 
 # Main application
 class MainApp(App):
@@ -51,6 +52,9 @@ class MainApp(App):
         else:
             import tkinter
             self.device_type = "desktop" if tkinter.Tk().winfo_screenwidth() > 480 else "mobile"
+
+        # load theme manager
+        self.theme = ThemesManager().get_theme()
 
     def build(self):
         # Only first screen
