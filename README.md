@@ -31,6 +31,15 @@ Compound|Type|
 
 ## Languages:
 
+### Translation:
+
+```
+_ = LanguagesManager().translate()
+
+_("Hello world!")
+
+```
+
 ### Text Direction:
 
 ```
