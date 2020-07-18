@@ -1,4 +1,4 @@
-# Orgaized
+# kivy Organized
 kivy app for organized you project
 
 ## Features
