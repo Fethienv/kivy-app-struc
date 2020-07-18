@@ -29,22 +29,40 @@ Compound|Type|
 - Install requirements using: pip install -r requirements.txt
 - Devlope your app
 
+### Languages:
+
+## Text Direction:
+
+```
+
+LanguagesManager().bidi()
+
+```
+
+## Current languages:
+
+```
+
+lang, locale, iso_code = LanguagesManager().get_current_language()
+
+```
+
 ## Add Languages:
-### step 1: Extract
+#### step 1: Extract
 ```
 
 pybabel extract main.py ressources modules screens widgets -o ressources/locales/standard.pot -F ressources/locales/mapping.ini
 
 ```
 
-### step 2: Init
+#### step 2: Init
 ```
 
 pybabel init -l ar_DZ -i ressources/locales/standard.pot -o ressources/locales/ar_DZ/LC_MESSAGES/main_app.po
 
 ```
 
-### step 3: translate file
+#### step 3: translate file
 open po file and translate it
 
 ### step 4: compile
