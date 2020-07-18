@@ -1,0 +1,47 @@
+#:kivy 1.11.1
+
+<DashbordBaseView>:
+    id: DashbordBaseView
+
+    sidebar_width: 200
+    topbar_height: 30
+
+    StackLayout:
+        orientation: "lr-tb"
+        # Sidebar
+        AppNavigationDrawer:
+            size_hint: [None,1] 
+            width: root.sidebar_width
+            BoxLayout:
+                orientation: "vertical"
+                dashboard_screen_manager: dashboard_Screen_manager_id
+                id: Navigation_drawer
+                size_hint:[0.15, 1]
+                Button:
+                    text: "Main Screen"
+                    on_release: screensloader().ChangeToScreen("Main")
+
+                Button:
+                    text: "Home"
+                    on_release: screensloader().ChangeToScreen("Main", True)
+                Button:
+                    text: "Blog"
+                    on_release: screensloader().ChangeToScreen("Blog", True)
+
+        # Page Content
+        BoxLayout:
+            size_hint: [None,1] 
+            width: root.width - root.sidebar_width
+            orientation: 'vertical'
+            ScreenManager:
+                id: dashboard_Screen_manager_id 
+                width:root.width - root.sidebar_width
+                height: root.height - root.topbar_height
+
+
+
+
+
+
+                
+    

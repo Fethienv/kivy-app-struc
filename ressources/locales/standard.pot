@@ -1,0 +1,67 @@
+# Translations template for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-07-18 13:31+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: main.py:69
+msgid "Kivy Organisation"
+msgstr ""
+
+#: main.py:129
+msgid "Multilingual"
+msgstr ""
+
+#: main.py:130
+msgid "Apparence"
+msgstr ""
+
+#: modules/languagesmanager.py:86 modules/themesmanager.py:79
+msgid "Themes Settings"
+msgstr ""
+
+#: modules/languagesmanager.py:90
+msgid "Language Settings"
+msgstr ""
+
+#: modules/languagesmanager.py:91
+msgid "Choose which language to translate the text of this app into"
+msgstr ""
+
+#: modules/themesmanager.py:83
+msgid "Theme"
+msgstr ""
+
+#: modules/themesmanager.py:84
+msgid "Choose your theme"
+msgstr ""
+
+#: modules/themesmanager.py:90
+msgid "Dark mode"
+msgstr ""
+
+#: modules/themesmanager.py:91
+msgid "Turn on/off darkmode"
+msgstr ""
+
+#: modules/themesmanager.py:93
+msgid "OFF"
+msgstr ""
+
+#: modules/themesmanager.py:93
+msgid "ON"
+msgstr ""
+

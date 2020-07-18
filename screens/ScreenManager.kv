@@ -1,14 +1,18 @@
 #:kivy 1.11.1
 
-## import all modules
-#:import screensloader modules.screensloader.ScreensLoader
+## Core
+#:import window kivy.core.window.Window
 
-## include first screens
-#:include screens/main/kv/main.kv
+## modules
+#:import screensloader    modules.screensloader.ScreensLoader
+#:import languagesmanager modules.languagesmanager.LanguagesManager
+
+## Screens
+##:include screens/main/kv/main.kv
 
 # ScreenManager
 ScreenManager:
 
     # All screens classes
-    MainScreen:
-        id  : MainScreen
+    #MainScreen:
+        #id  : MainScreen

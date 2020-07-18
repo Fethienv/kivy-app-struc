@@ -10,6 +10,18 @@
         "file_name"   : "dashboard",
         "screen_name" : "Dashboard",
         "object": 0
+    },
+    "DashboardMainScreen": {
+        "subdir"      : "dashboard",
+        "file_name"   : "main",
+        "screen_name" : "DashboardMain",
+        "object": 0
+    },
+    "DashboardBlogScreen": {
+        "subdir"      : "dashboard",
+        "file_name"   : "blog",
+        "screen_name" : "DashboardBlog",
+        "object": 0
     }
 
 }

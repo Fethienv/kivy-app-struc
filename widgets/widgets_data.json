@@ -1,8 +1,13 @@
 {
-    "BackgroundLayer": {
-        "file"  : "backgroundlayer",
-        "class" : "BackgroundLayer",
+    "MainBackground": {
+        "file"  : "mainbackground",
+        "class" : "MainBackground",
+        "object": 0
+    },
+    "DashboardBackground": {
+        "file"  : "dashboardbackground",
+        "class" : "DashboardBackground",
         "object": 0
     }
-
+    
 }

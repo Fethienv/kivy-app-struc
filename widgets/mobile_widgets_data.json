@@ -1,8 +1,13 @@
 {
-    "BackgroundLayer": {
-        "file"  : "backgroundlayer2",
-        "class" : "BackgroundLayer2",
+    "AppNavigationDrawer": {
+        "file"  : "appnavigationdrawer",
+        "class" : "AppNavigationDrawer",
+        "object": 0
+    },
+    "DashbordBaseView": {
+        "file"  : "dashbordbaseview",
+        "class" : "DashbordBaseView",
         "object": 0
     }
-
+    
 }

@@ -1,15 +1,17 @@
-import ast
-
 import settings
+
+import cProfile
+import pstats
 
 import kivy
 
 kivy.require('1.11.1')
 
 from kivy.config import Config
+from kivy.uix.settings import SettingsWithSidebar, SettingsWithNoMenu, SettingsWithSpinner
 
 # load configuration module
-from modules.config import AppConfig
+from modules import AppConfig
 
 # create and app config
 AppConfig().load_default_config()
@@ -19,15 +21,18 @@ from kivy.app import App
 
 # kivy kv builder
 from kivy.lang import Builder
-from kivy.utils import platform
 
-# Screens Loader modules
-from modules.screensloader import ScreensLoader
-from modules.themesmanager import ThemesManager
+# modules
+from modules import ScreensLoader, ThemesManager, LanguagesManager
+
+# load string translator
+_ = LanguagesManager().translate
+
 
 # Main application
 class MainApp(App):
 
+    # device
     device_type = "mobile"
 
     # loader progress
@@ -35,6 +40,10 @@ class MainApp(App):
     progress_percent = 0
     progress_total   = 1
 
+    # laguages
+    current_language = ""
+
+    use_kivy_settings = False
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -45,61 +54,118 @@ class MainApp(App):
         self.mobile_widgets_data   = {}  
         self.screens_data          = {} 
 
+        # loader update excluded screens
+        self.excluded_screens = settings.excluded_screens
+
         # detect device type
-        if settings.select_device_by_distances:
-            desktop_os  = ['win', 'macosx', 'linux']
-            self.device_type = "desktop" if platform in desktop_os else "mobile"
+        if not settings.select_device_by_distances:
+            from kivy.utils import platform
+            self.device_type = "desktop" if platform in settings.desktop_os and not settings.force_mobile_style else "mobile"
         else:
             import tkinter
-            self.device_type = "desktop" if tkinter.Tk().winfo_screenwidth() > 480 else "mobile"
+            self.device_type = "desktop" if tkinter.Tk().winfo_screenwidth() > 480 and not settings.force_mobile_style else "mobile"
 
-        # load theme manager
+        # load language
+        self.lang, self.locale, self.iso_code = LanguagesManager().get_current_language() 
+
+        # load theme
         self.theme = ThemesManager().get_theme()
 
+        # app title
+        self.title = _("Kivy Organisation")
+
+        # setting panel style
+        if self.device_type == "desktop":
+            self.settings_cls = SettingsWithSpinner # SettingsWithSidebar : only with python 3.7
+        else:
+            self.settings_cls = SettingsWithSpinner # after will be: SettingsWithNoMenu  
+
     def build(self):
-        # Only first screen
+        ''' build method '''
+
+        # create screen manager
+        self.sm = Builder.load_file('screens/ScreenManager.kv') 
+
+        # Only first screen and it
         from screens.main.py.main import MainScreen
 
-        self.sm = Builder.load_file('screens/ScreenManager.kv')        
-        self.sm.current = "Main"
+        self.first_screen_kv = 'screens/main/kv/main.kv'
+        Builder.load_file(self.first_screen_kv) 
+        self.first_screen_class = MainScreen(name="Main")
+
+        self.sm.add_widget(self.first_screen_class)
+
+        # change to first screen
+        self.sm.current = str(self.first_screen_class.name)
+
+        # set last screen name
+        self.CurrentScreen = self.sm.current
+        self.LastScreen    = self.sm.current
+        self.isDashboard   = False
 
         return self.sm
     
     def on_start(self):
         """Creates a list of items with examples on start screen."""
 
-        # load drawables data
-        print("[INFO   ] [MainApp     ] Load global widgets list ...")
-        with open("widgets/widgets_data.json") as widgets_data_json:
-            self.widgets_data = ast.literal_eval(widgets_data_json.read())
-            widgets_data = list(self.widgets_data.keys())
-            widgets_data.sort()
+        # for debug
+        if settings.debug_profile:
+            self.profile = cProfile.Profile()
+            self.profile.enable()
 
-        if self.device_type == "desktop":
-            # load desktop drawables
-            print("[INFO   ] [MainApp     ] Load desktop widgets list ...")
-            with open("widgets/desktop_widgets_data.json") as desktop_widgets_data_json:
-                self.desktop_widgets_data = ast.literal_eval(desktop_widgets_data_json.read())
-                desktop_widgets_data = list(self.desktop_widgets_data.keys())
-                desktop_widgets_data.sort()
-        else:
-            # load mobile drawables
-            print("[INFO   ] [MainApp     ] Load mobile widgets list ...")
-            with open("widgets/mobile_widgets_data.json") as mobile_widgets_data_json:
-                self.mobile_widgets_data = ast.literal_eval(mobile_widgets_data_json.read())
-                mobile_widgets_data = list(self.mobile_widgets_data.keys())
-                mobile_widgets_data.sort()
+        # load screens and widgets
+        ScreensLoader().load()
 
-        # load screens data
-        print("[INFO   ] [MainApp     ] Load screens list ...")
-        with open("screens/screens_data.json") as screens_data_json:
-            self.screens_data = ast.literal_eval(screens_data_json.read())
-            screens_data = list(self.screens_data.keys())
-            screens_data.sort()
+    def on_stop(self):
+        ''' on stop method '''
 
-        ScreensLoader().load_widgets()
+        # for debug
+        if settings.debug_profile:
+            self.profile.disable()
+            self.profile.dump_stats('app.profile')
+            p = pstats.Stats('app.profile')
+            p.strip_dirs().sort_stats(-1).print_stats()
 
+    
+    ## Settings
+    def build_config(self, config):
+        ''' build configuration method '''
 
+        self.config = Config
+        AppConfig().build_config('localization', 'language', self.iso_code)
+        AppConfig().build_config('Apparence', 'theme_name', "Purple")
+        AppConfig().build_config('Apparence', 'theme_mode', "OFF")
+
+    def build_settings(self, settings):
+        ''' build settings method '''
+
+        settings.add_json_panel(_('Multilingual'), self.config, data=LanguagesManager().settings_json(translator=_))
+        settings.add_json_panel(_('Apparence'), self.config, data=ThemesManager().settings_json(translator=_))
+        
+
+    def on_config_change(self, config, section, key, value):
+        ''' on config change method '''
+
+        if config is not self.config:
+            return
+        token = (section, key)
+        if token == ('localization', 'language'):
+            print("[INFO   ] [AppConfig   ] Set language to : ", value)
+            LanguagesManager().set_app_language(value)
+            
+        if token == ('Apparence', 'theme_mode'):
+            print("[INFO   ] [AppConfig   ] Set theme mode : ", value)
+            ThemesManager().set_app_theme_mode(theme_mode = str(value))
+            
+        if token == ('Apparence', 'theme_name'):
+            print("[INFO   ] [AppConfig   ] Set theme : ", value)
+            ThemesManager().set_app_theme(theme=str(value))
+
+        # live apply changes
+        ScreensLoader().UpdateScreens()
+        reset()
+
+        
 # reset Cache
 def reset():
     import kivy.core.window as window

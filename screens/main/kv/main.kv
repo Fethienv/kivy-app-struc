@@ -3,9 +3,11 @@
 <MainScreen>:
     name: "Main"
 
-    Label:
-        text: "Hello World!"
-    
-    Button:
-        text: "Next screen"
-        on_release: screensloader().ChangeToScreen("Dashboard")
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text: "Hello World!"
+        
+        Button:
+            text: "Next screen"
+            on_release: screensloader().ChangeToScreen("Dashboard")

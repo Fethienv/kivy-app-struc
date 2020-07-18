@@ -1,4 +1,4 @@
 from kivy.uix.boxlayout import BoxLayout
 
-class BackgroundLayer(BoxLayout):
+class MainBackground(BoxLayout):
     pass

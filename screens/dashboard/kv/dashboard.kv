@@ -3,9 +3,11 @@
 <DashboardScreen>:
     name: "Dashboard"
 
-    Label:
-        text: "Dashboard"
-    
-    Button:
-        text: "Back screen"
-        on_release: screensloader().ChangeToScreen("Main")
+    # Background
+    DashboardBackground:
+
+    # DashbordBaseView
+    DashbordBaseView:
+        id : dashbordbaseview
+        size_hint: [None,1]
+        width:root.width
