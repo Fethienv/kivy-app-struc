@@ -6,8 +6,12 @@
     BoxLayout:
         orientation:"vertical"
         Label:
-            text: "Hello World!"
+            text: _("Hello World!")
+            font_name: app.theme.font_name
+            base_direction: languagesmanager().bidi()
         
         Button:
-            text: "Next screen"
-            on_release: screensloader().ChangeToScreen("Dashboard")
+            text: _("Next screen")
+            on_release: screensloader().DashboardChangeToScreen("Main", True)
+            font_name: app.theme.font_name
+            base_direction: languagesmanager().bidi()

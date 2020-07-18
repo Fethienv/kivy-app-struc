@@ -4,7 +4,7 @@
     id: DashbordBaseView
     size_hint: [1,1]
     
-    sidebar_width: 200
+    sidebar_width: 100
     topbar_height: 30
 
     AppNavigationDrawer:
@@ -13,23 +13,30 @@
         id: Navigation_drawer
         anim_type: "slide_above_simple"
         side_panel_width: root.sidebar_width
-        side_panel_positioning: "left"
+        side_panel_positioning: "left" if languagesmanager().bidi()== "ltr" else "right"
 
         # Sidebar
         BoxLayout:
             id: side_panel
             orientation: "vertical"
-            size_hint: [None,1] 
-            width: root.sidebar_width
+            size_hint: [1,1] 
             Button:
-                text: "Main Screen"
+                text: _("Main Screen")
                 on_release: screensloader().ChangeToScreen("Main")
+                font_name: app.theme.font_name
+                base_direction: languagesmanager().bidi()
+
             Button:
-                text: "Home"
+                text: _("Home")
                 on_release: screensloader().ChangeToScreen("Main", True)
+                font_name: app.theme.font_name
+                base_direction: languagesmanager().bidi()
+
             Button:
-                text: "Blog"
+                text: _("Blog")
                 on_release: screensloader().ChangeToScreen("Blog", True)
+                font_name: app.theme.font_name
+                base_direction: languagesmanager().bidi()
 
         # Page Content
         BoxLayout:

@@ -1,17 +1,18 @@
-# Translations template for PROJECT.
+# French (France) translations for PROJECT.
 # Copyright (C) 2020 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-18 18:05+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2020-07-18 17:23+0100\n"
+"PO-Revision-Date: 2020-07-18 17:39+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr_FR\n"
+"Language-Team: fr_FR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,15 +20,15 @@ msgstr ""
 
 #: main.py:74
 msgid "Kivy Organisation"
-msgstr ""
+msgstr "Organisation de Kivy"
 
 #: main.py:141
 msgid "Multilingual"
-msgstr ""
+msgstr "Multilangue"
 
 #: main.py:142
 msgid "Apparence"
-msgstr ""
+msgstr "Apparence"
 
 #: modules/languagesmanager.py:83 modules/themesmanager.py:75
 msgid "Themes Settings"
@@ -35,64 +36,65 @@ msgstr ""
 
 #: modules/languagesmanager.py:87
 msgid "Language Settings"
-msgstr ""
+msgstr "Paramaètre des langues"
 
 #: modules/languagesmanager.py:88
 msgid "Choose which language to translate the text of this app into"
-msgstr ""
+msgstr "Choisir la langue de traduction"
 
 #: modules/themesmanager.py:79
 msgid "Theme"
-msgstr ""
+msgstr "theme"
 
 #: modules/themesmanager.py:80
 msgid "Choose your theme"
-msgstr ""
+msgstr "Choisir votre theme"
 
 #: modules/themesmanager.py:86
 msgid "Dark mode"
-msgstr ""
+msgstr "Mode de Nuit"
 
 #: modules/themesmanager.py:87
 msgid "Turn on/off darkmode"
-msgstr ""
+msgstr "Ouvrir ou fermer le mode de nuit"
 
 #: modules/themesmanager.py:89
 msgid "OFF"
-msgstr ""
+msgstr "Fermer"
 
 #: modules/themesmanager.py:89
 msgid "ON"
-msgstr ""
+msgstr "Ouvrir"
 
 #: screens/dashboard/kv/blog.kv:7
 msgid "DashboardBlog"
-msgstr ""
+msgstr "Pannau - Blog"
 
 #: screens/dashboard/kv/main.kv:7
 msgid "DashboardMain"
-msgstr ""
+msgstr "Pannau - Accueil"
 
 #: screens/main/kv/main.kv:9
 msgid "Hello World!"
-msgstr ""
+msgstr "Bonjour!"
 
-#: screens/main/kv/main.kv:14
+#: screens/main/kv/main.kv:12
 msgid "Next screen"
-msgstr ""
+msgstr "Ecran suivante"
+
 
 #: widgets/DashbordBaseView/desktop/dashbordbaseview.kv:21
 #: widgets/DashbordBaseView/mobile/dashbordbaseview.kv:25
 msgid "Main Screen"
-msgstr ""
+msgstr "Principal"
 
 #: widgets/DashbordBaseView/desktop/dashbordbaseview.kv:27
 #: widgets/DashbordBaseView/mobile/dashbordbaseview.kv:31
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 #: widgets/DashbordBaseView/desktop/dashbordbaseview.kv:33
 #: widgets/DashbordBaseView/mobile/dashbordbaseview.kv:37
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 

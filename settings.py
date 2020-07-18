@@ -12,7 +12,7 @@ select_device_by_distances = False
 desktop_os  = ['win', 'macosx', 'linux']
 
 # Device type allways mobile
-force_mobile_style = False
+force_mobile_style = True
 
 # loader update excluded screens
 # Note: if yu add a screen name here, you should import its class when call it

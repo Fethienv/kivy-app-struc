@@ -227,7 +227,7 @@ class ScreensLoader:
 
         # load last screen
         if app.isDashboard == True:
-            self.DashboardChangeToScreen(app.CurrentScreen[9:], All = True)
+            self.DashboardChangeToScreen(screen_name=app.CurrentScreen[9:], All = True)
         else:
             self.ChangeToScreen(screen_name= app.CurrentScreen)
 

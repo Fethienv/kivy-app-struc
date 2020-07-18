@@ -28,7 +28,6 @@ from modules import ScreensLoader, ThemesManager, LanguagesManager
 # load string translator
 _ = LanguagesManager().translate
 
-
 # Main application
 class MainApp(App):
 
@@ -76,7 +75,7 @@ class MainApp(App):
 
         # setting panel style
         if self.device_type == "desktop":
-            self.settings_cls = SettingsWithSpinner # SettingsWithSidebar : only with python 3.7
+            self.settings_cls = SettingsWithSidebar # error in python 3.8 key error
         else:
             self.settings_cls = SettingsWithSpinner # after will be: SettingsWithNoMenu  
 

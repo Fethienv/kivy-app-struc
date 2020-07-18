@@ -44,14 +44,13 @@ Builder.load_string('''
            root.side_panel_init_offset*root.side_panel_width if root.side_panel_positioning in ['bottom', 'top'] \
            else root.y
         x: root.x + root._side_panel_offset_x - root._anim_direction * (1-root._anim_progress)* \
-           root.side_panel_init_offset*root.side_panel_width  if root.side_panel_positioning in ['right', 'left'] else \
+           root.side_panel_init_offset * root.side_panel_width  if root.side_panel_positioning in ['right', 'left'] else \
            root.x
         opacity: root.side_panel_opacity + \
                  (1-root.side_panel_opacity)*root._anim_progress
         height: root.height if root.side_panel_positioning in ['right', 'left'] else root.side_panel_width
         width: root.side_panel_width if root.side_panel_positioning in ['right', 'left'] else root.width
-        opacity: root.side_panel_opacity + \
-                 (1-root.side_panel_opacity)*root._anim_progress
+
         canvas:
             Color:
                 rgba: (0,0,0,1)
