@@ -74,10 +74,34 @@ pybabel init -l ar_DZ -i ressources/locales/standard.pot -o ressources/locales/a
 #### step 3: translate file
 open po file and translate it
 
-### step 4: compile
+#### step 4: compile
+
 ```
 
 pybabel compile -l ar_DZ -i ressources/locales/ar_DZ/LC_MESSAGES/main_app.po -o ressources/locales/ar_DZ/LC_MESSAGES/main_app.mo
+
+```
+
+#### step 5: add languages to settings.py
+
+```
+Languages = [
+    {
+        'name'    : "English",
+        'icon'    : "flag",
+        'iso_code': "en_US",
+    },
+    {
+        'name'    : "Français",
+        'icon'    : "flag",
+        'iso_code': "fr_FR",
+    },
+    {
+        'name'    : "العربية",
+        'icon'    : "flag",
+        'iso_code': "ar_DZ",
+    },
+]
 
 ```
 
