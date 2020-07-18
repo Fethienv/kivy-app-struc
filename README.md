@@ -29,9 +29,9 @@ Compound|Type|
 - Install requirements using: pip install -r requirements.txt
 - Devlope your app
 
-### Languages:
+## Languages:
 
-## Text Direction:
+### Text Direction:
 
 ```
 
@@ -39,7 +39,7 @@ LanguagesManager().bidi()
 
 ```
 
-## Current languages:
+### Current languages:
 
 ```
 
@@ -47,7 +47,7 @@ lang, locale, iso_code = LanguagesManager().get_current_language()
 
 ```
 
-## Add Languages:
+### Add Languages:
 #### step 1: Extract
 ```
 
